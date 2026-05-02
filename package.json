@@ -1,0 +1,16 @@
+{
+  "name": "expense-calc-netlify",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'Static site ready'"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^9.0.6"
+  },
+  "devDependencies": {
+    "netlify-cli": "^19.0.0"
+  }
+}

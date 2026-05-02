@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monthly Expenses Summary Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar no-print">
+      <h1>Expense Form</h1>
+      <nav>
+        <a href="index.html">Form</a>
+        <a href="records.html">Saved Pages</a>
+      </nav>
+      <div class="actions">
+        <button id="newFormBtn" type="button">New</button>
+        <button id="saveBtn" type="button">Save</button>
+        <button id="pdfBtn" type="button">Export PDF</button>
+        <button id="printBtn" type="button">Print</button>
+      </div>
+    </header>
+
+    <main class="page-wrap">
+      <section class="sheet" id="printSheet">
+        <div class="sheet-header">
+          <img src="assets/logo.png" alt="Company logo" class="logo" />
+          <h2>MAHMOOD HERBALS</h2>
+          <p>AL BARKAT TRADERS AKBARI MANDI LAHORE PAKISTAN</p>
+          <p>042-37379014 / 03314535466</p>
+          <h3>Monthly Expenses Summery</h3>
+        </div>
+
+        <div class="meta-grid">
+          <label>Name:
+            <input id="name" type="text" />
+          </label>
+          <label>Month:
+            <input id="month" type="text" placeholder="September 2024" />
+          </label>
+          <label>Designation:
+            <input id="designation" type="text" />
+          </label>
+          <label>Area:
+            <input id="metaArea" type="text" list="areaOptions" autocomplete="off" />
+            <datalist id="areaOptions"></datalist>
+          </label>
+        </div>
+
+        <table class="expense-table" id="expenseTable">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>From</th>
+              <th>To</th>
+              <th>T.A</th>
+              <th>D.A</th>
+              <th>N.STAY</th>
+              <th>Expenses</th>
+            </tr>
+          </thead>
+          <tbody id="rowsMount"></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="6" class="right">Total</td>
+              <td><input id="totalExpenses" readonly /></td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="bottom-grid">
+          <label>Total Expenses:
+            <input id="totalExpensesMirror" readonly />
+          </label>
+          <label>Basic Salary:
+            <input id="basicSalary" type="number" min="0" step="0.01" value="0" />
+          </label>
+          <label>Mobile Expenses:
+            <input id="mobileExpenses" type="number" min="0" step="0.01" value="0" />
+          </label>
+          <label>Other Expenses/Photo Copy:
+            <input id="otherExpenses" type="number" min="0" step="0.01" value="0" />
+          </label>
+          <label>Total In Words:
+            <input id="totalInWords" type="text" readonly />
+          </label>
+          <label>Grand Total:
+            <input id="grandTotal" readonly />
+          </label>
+          <label>Approved By:
+            <input id="approvedBy" type="text" />
+          </label>
+          <label>Prepaid By:
+            <input id="prepaidBy" type="text" value="Zia ur Rehman" />
+          </label>
+        </div>
+      </section>
+    </main>
+
+    <p id="status" class="status no-print"></p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" referrerpolicy="no-referrer"></script>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
