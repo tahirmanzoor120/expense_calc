@@ -350,6 +350,10 @@ button:hover {
     background: transparent !important;
   }
 
+  input[type="date"]:not([data-has-value="true"]) {
+    visibility: hidden;
+  }
+
   .bottom-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

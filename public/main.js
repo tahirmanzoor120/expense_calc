@@ -23,6 +23,12 @@ function fmt(value) {
   return num(value).toFixed(2);
 }
 
+function refreshDateAttrs() {
+  rowsMount.querySelectorAll('input[type="date"]').forEach((inp) => {
+    inp.dataset.hasValue = inp.value ? "true" : "";
+  });
+}
+
 function buildRows() {
   for (let i = 1; i <= ROW_COUNT; i += 1) {
     const tr = document.createElement("tr");
@@ -122,11 +128,15 @@ function patchForm(data) {
   mobileExpensesEl.value = data.totals?.mobileExpenses ?? 0;
   otherExpensesEl.value = data.totals?.otherExpenses ?? 0;
   recalcTotals();
+  refreshDateAttrs();
 }
 
 function bindEvents() {
   rowsMount.addEventListener("input", (event) => {
     if (event.target instanceof HTMLInputElement) {
+      if (event.target.type === "date") {
+        event.target.dataset.hasValue = event.target.value ? "true" : "";
+      }
       recalcTotals();
     }
   });
@@ -291,6 +301,7 @@ function toWords(number) {
 }
 
 buildRows();
+refreshDateAttrs();
 bindEvents();
 recalcTotals();
 loadAreaSuggestions();
